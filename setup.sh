@@ -32,4 +32,4 @@ sudo systemctl restart docker
 docker pull jenkins/jenkins:lts
 
 # 10. Jenkins 다음 컨테이너 설정으로 이미지 실행
-docker run -d -p 8080:8080 -p 50000:50000 -v /jenkins:/var/jenkins -v /home/${USER}/.ssh:/root/.ssh -v /var/run/docker.sock:/var/run/docker.sock --name jenkins -u root jenkins/jenkins:lts
+docker run -d -p 8080:8080 -p 50000:50000 -v /jenkins:/var/jenkins -v /home/${USER}/.ssh:/${USER}/.ssh -v /var/run/docker.sock:/var/run/docker.sock --name jenkins -u ${USER} jenkins/jenkins:lts
