@@ -1,7 +1,3 @@
-# 현재 스크립트에서 사용할 변수 입력
-USER = "OS계정명"
-
-
 # Docker/Jenkins 초기 설정
 
 # 1. 패기지 목록 업데이트
@@ -25,10 +21,13 @@ sudo systemctl enable docker
 # 7. Docker 그룹에 계정 추가
 sudo usermod -aG docker ${USER}
 
-# 8. Docker 재시작
+# 8. docker 그룹 업데이트
+newgrp docker
+
+# 9. Docker 재시작
 sudo systemctl restart docker
 
-# 9. Jenkins 이미지 설치
+# 10. Jenkins 이미지 설치
 docker pull jenkins/jenkins:lts
 
 # 10. Jenkins 다음 컨테이너 설정으로 이미지 실행
